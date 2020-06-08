@@ -3,10 +3,27 @@ import React, {useState} from "react"
 import BottomRow from "./BottomRow";
 import "./App.css";
 
-function App() {
+function App(props) {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const [scoreHome, setScoreHome] = useState(21)
   const [scoreAway, setScoreAway] = useState(14)
+
+  const touchdownHome = evt =>{
+    setScoreHome(scoreHome + 7)
+  }
+
+  const fieldGoalHome = evt =>{
+    setScoreHome(scoreHome + 3)
+  }
+
+  const touchdownAway = evt =>{
+    setScoreAway(scoreAway + 7)
+  }
+
+  const fieldGoalAway = evt =>{
+    setScoreAway(scoreAway + 3)
+  }
+
 
   return (
     <div className="container">
@@ -30,12 +47,12 @@ function App() {
         <div className="homeButtons">
 
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button className="homeButtons__touchdown">Home Touchdown</button>
-          <button className="homeButtons__fieldGoal">Home Field Goal</button>
+          <button onClick={touchdownHome} className="homeButtons__touchdown">Home Touchdown</button>
+          <button onClick={fieldGoalHome} className="homeButtons__fieldGoal">Home Field Goal</button>
         </div>
         <div className="awayButtons">
-          <button className="awayButtons__touchdown">Away Touchdown</button>
-          <button className="awayButtons__fieldGoal">Away Field Goal</button>
+          <button onClick={touchdownAway} className="awayButtons__touchdown">Away Touchdown</button>
+          <button onClick={fieldGoalAway} className="awayButtons__fieldGoal">Away Field Goal</button>
         </div>
       </section>
     </div>
