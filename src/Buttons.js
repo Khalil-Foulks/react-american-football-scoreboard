@@ -14,8 +14,9 @@ const Buttons = props => {
             <button onClick={props.touchdownAway} className="awayButtons__touchdown">Away Touchdown</button>
             <button onClick={props.fieldGoalAway} className="awayButtons__fieldGoal">Away Field Goal</button>
         </div>
-        <div className="quarterButtons">
+        <div className="extraButtons">
             <button onClick={ props.quarters } className="awayButtons__touchdown">Change Quarter</button>
+            <button onClick={ props.downs } className="awayButtons__touchdown">Change Downs</button>
         </div>
         </section>      
     );

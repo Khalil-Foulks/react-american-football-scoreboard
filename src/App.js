@@ -2,7 +2,7 @@
 import React, {useState} from "react"
 import BottomRow from "./BottomRow";
 import TopRow from "./TopRow";
-import Buttons from "./Buttons"
+import Buttons from "./Buttons";
 import "./App.css";
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
   const [scoreHome, setScoreHome] = useState(0)
   const [scoreAway, setScoreAway] = useState(0)
   const [quarter, setQuarter] = useState(1)
+  const [down, setDown] = useState(1)
 
   const touchdownHome = evt =>{
     setScoreHome(scoreHome + 7)
@@ -31,14 +32,18 @@ function App() {
     quarter === 4 ? setQuarter(quarter - 3) : setQuarter(quarter + 1)
   }
 
+  const downs = evt =>{
+    down === 4 ? setDown(down - 3) : setDown(down + 1)
+  }
+
 
   return (
     <div className="container">
       <section className="scoreboard">
         <TopRow scoreHome ={scoreHome} scoreAway={scoreAway} homeName={'Patriots'} awayName ={'Eagles'}/>
-        <BottomRow quarter={quarter}/>
+        <BottomRow quarter={quarter} down={down}/>
       </section>
-      <Buttons touchdownHome={touchdownHome} fieldGoalHome={fieldGoalHome} touchdownAway={touchdownAway} fieldGoalAway={fieldGoalAway} quarters={quarters}/>
+      <Buttons touchdownHome={touchdownHome} fieldGoalHome={fieldGoalHome} touchdownAway={touchdownAway} fieldGoalAway={fieldGoalAway} quarters={quarters} downs={downs}/>
     </div>
   );
 }
